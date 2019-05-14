@@ -106,7 +106,7 @@ public:
 		int64_t bigint;
 		float float_;
 		double double_;
-		uint64_t pointer;
+		uintptr_t pointer;
 	} value_;
 
 	//! The value of the object, if it is of a variable size type

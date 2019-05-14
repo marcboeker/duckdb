@@ -29,7 +29,7 @@ template <class OP> static void templated_inplace_bitwise_operation(Vector &resu
 		templated_inplace_loop<int64_t, int64_t, OP>(input, result);
 		break;
 	case TypeId::POINTER:
-		templated_inplace_loop<uint64_t, uint64_t, OP>(input, result);
+		templated_inplace_loop<uintptr_t, uintptr_t, OP>(input, result);
 		break;
 	default:
 		throw InvalidTypeException(input.type, "Invalid type for addition");

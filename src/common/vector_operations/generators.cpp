@@ -55,9 +55,6 @@ void VectorOperations::GenerateSequence(Vector &result, int64_t start, int64_t i
 	case TypeId::DOUBLE:
 		templated_generate_sequence<double>(result, start, increment);
 		break;
-	case TypeId::POINTER:
-		templated_generate_sequence<uint64_t>(result, start, increment);
-		break;
 	default:
 		throw NotImplementedException("Unimplemented type for generate sequence");
 	}

@@ -299,6 +299,9 @@ Value Value::CastAs(SQLType source_type, SQLType target_type) {
 }
 
 Value Value::CastAs(TypeId target_type) const {
+	if (target_type == type) {
+		return Copy(); // in case of types that have no SQLType equivalent such as POINTER
+	}
 	return Copy().CastAs(SQLTypeFromInternalType(type), SQLTypeFromInternalType(target_type));
 }
 
@@ -323,13 +326,13 @@ void Value::Serialize(Serializer &serializer) {
 			serializer.Write<int64_t>(value_.bigint);
 			break;
 		case TypeId::FLOAT:
-			serializer.Write<double>(value_.float_);
+			serializer.Write<float>(value_.float_);
 			break;
 		case TypeId::DOUBLE:
 			serializer.Write<double>(value_.double_);
 			break;
 		case TypeId::POINTER:
-			serializer.Write<uint64_t>(value_.pointer);
+			throw Exception("Cannot serialize pointers");
 			break;
 		case TypeId::VARCHAR:
 			serializer.WriteString(str_value);

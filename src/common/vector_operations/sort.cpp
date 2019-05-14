@@ -120,9 +120,6 @@ void VectorOperations::Sort(Vector &vector, sel_t *sel_vector, count_t count, se
 	case TypeId::VARCHAR:
 		templated_quicksort<const char *>(vector, sel_vector, count, result);
 		break;
-	case TypeId::POINTER:
-		templated_quicksort<uint64_t>(vector, sel_vector, count, result);
-		break;
 	default:
 		throw NotImplementedException("Unimplemented type for sort");
 	}

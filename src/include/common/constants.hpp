@@ -33,6 +33,8 @@ typedef uint64_t index_t;
 //! a saner siz_t for amounts of things, mostly for readability
 typedef uint64_t count_t;
 
+typedef uint64_t hash_t;
+
 const index_t INVALID_INDEX = (index_t)-1;
 
 //! data pointers

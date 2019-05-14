@@ -57,13 +57,10 @@ void VectorOperations::AppendFromStorage(Vector &source, Vector &target) {
 	case TypeId::DOUBLE:
 		append_loop<double>(source, target);
 		break;
-	case TypeId::POINTER:
-		append_loop<uint64_t>(source, target);
-		break;
 	case TypeId::VARCHAR:
 		append_loop<const char *>(source, target);
 		break;
 	default:
-		throw NotImplementedException("Unimplemented type for copy");
+		throw NotImplementedException("Unimplemented type for append");
 	}
 }

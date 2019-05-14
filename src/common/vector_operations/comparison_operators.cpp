@@ -43,7 +43,7 @@ template <class OP> static void templated_boolean_operation(Vector &left, Vector
 		templated_binary_loop<int64_t, int64_t, bool, OP>(left, right, result);
 		break;
 	case TypeId::POINTER:
-		templated_binary_loop<uint64_t, uint64_t, bool, OP>(left, right, result);
+		templated_binary_loop<uintptr_t, uintptr_t, bool, OP>(left, right, result);
 		break;
 	case TypeId::FLOAT:
 		templated_binary_loop<float, float, bool, OP>(left, right, result);

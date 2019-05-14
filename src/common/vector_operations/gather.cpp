@@ -75,7 +75,7 @@ template <class LOOP, class OP> static void generic_gather_loop(Vector &source, 
 		LOOP::template Operation<double, OP>(source, dest);
 		break;
 	case TypeId::POINTER:
-		LOOP::template Operation<uint64_t, OP>(source, dest);
+		LOOP::template Operation<uintptr_t, OP>(source, dest);
 		break;
 	case TypeId::VARCHAR:
 		LOOP::template Operation<char *, OP>(source, dest);

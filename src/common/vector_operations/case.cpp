@@ -73,7 +73,7 @@ void VectorOperations::Case(Vector &check, Vector &res_true, Vector &res_false, 
 		case_loop<double, RegularCase>(check, res_true, res_false, result);
 		break;
 	case TypeId::POINTER:
-		case_loop<uint64_t, RegularCase>(check, res_true, res_false, result);
+		case_loop<uintptr_t, RegularCase>(check, res_true, res_false, result);
 		break;
 	case TypeId::VARCHAR:
 		case_loop<const char *, StringCase>(check, res_true, res_false, result);

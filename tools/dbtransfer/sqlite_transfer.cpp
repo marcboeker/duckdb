@@ -73,9 +73,6 @@ bool TransferDatabase(Connection &con, sqlite3 *sqlite) {
 					case SQLTypeId::BIGINT:
 						rc = sqlite3_bind_int64(stmt, bind_index, (sqlite3_int64)value.GetNumericValue());
 						break;
-					case SQLTypeId::POINTER:
-						rc = sqlite3_bind_int64(stmt, bind_index, (sqlite3_int64)value.GetNumericValue());
-						break;
 					case SQLTypeId::DATE: {
 						auto date_str = value.ToString() + " 00:00:00";
 

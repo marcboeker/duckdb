@@ -30,8 +30,6 @@ template <class OP> static void mark_join_operator(Vector &left, Vector &right, 
 		return mark_join_templated<int64_t, OP>(left, right, found_match);
 	case TypeId::DOUBLE:
 		return mark_join_templated<double, OP>(left, right, found_match);
-	case TypeId::POINTER:
-		return mark_join_templated<uint64_t, OP>(left, right, found_match);
 	case TypeId::VARCHAR:
 		return mark_join_templated<const char *, OP>(left, right, found_match);
 	default:

@@ -37,7 +37,7 @@ void VectorOperations::Add(Vector &left, Vector &right, Vector &result) {
 		templated_binary_loop<double, double, double, duckdb::Add>(left, right, result);
 		break;
 	case TypeId::POINTER:
-		templated_binary_loop<uint64_t, uint64_t, uint64_t, duckdb::Add>(left, right, result);
+		templated_binary_loop<uintptr_t, uintptr_t, uintptr_t, duckdb::Add>(left, right, result);
 		break;
 	default:
 		throw InvalidTypeException(left.type, "Invalid type for addition");
@@ -69,7 +69,7 @@ void VectorOperations::Subtract(Vector &left, Vector &right, Vector &result) {
 		templated_binary_loop<double, double, double, duckdb::Subtract>(left, right, result);
 		break;
 	case TypeId::POINTER:
-		templated_binary_loop<uint64_t, uint64_t, uint64_t, duckdb::Subtract>(left, right, result);
+		templated_binary_loop<uintptr_t, uintptr_t, uintptr_t, duckdb::Subtract>(left, right, result);
 		break;
 	default:
 		throw InvalidTypeException(left.type, "Invalid type for subtraction");
@@ -99,9 +99,6 @@ void VectorOperations::Multiply(Vector &left, Vector &right, Vector &result) {
 		break;
 	case TypeId::DOUBLE:
 		templated_binary_loop<double, double, double, duckdb::Multiply>(left, right, result);
-		break;
-	case TypeId::POINTER:
-		templated_binary_loop<uint64_t, uint64_t, uint64_t, duckdb::Multiply>(left, right, result);
 		break;
 	default:
 		throw InvalidTypeException(left.type, "Invalid type for multiplication");
@@ -188,9 +185,6 @@ void VectorOperations::Divide(Vector &left, Vector &right, Vector &result) {
 	case TypeId::DOUBLE:
 		templated_divmod_loop<double, duckdb::Divide>(left, right, result);
 		break;
-	case TypeId::POINTER:
-		templated_divmod_loop<uint64_t, duckdb::Divide>(left, right, result);
-		break;
 	default:
 		throw InvalidTypeException(left.type, "Invalid type for division");
 	}
@@ -215,7 +209,7 @@ void VectorOperations::Modulo(Vector &left, Vector &right, Vector &result) {
 		templated_divmod_loop<int64_t, duckdb::Modulo>(left, right, result);
 		break;
 	case TypeId::POINTER:
-		templated_divmod_loop<uint64_t, duckdb::Modulo>(left, right, result);
+		templated_divmod_loop<uintptr_t, duckdb::Modulo>(left, right, result);
 		break;
 	default:
 		throw InvalidTypeException(left.type, "Invalid type for division");

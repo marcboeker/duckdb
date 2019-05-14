@@ -30,7 +30,7 @@ public:
 			type = TypeId::INTEGER;
 		} else if (std::is_same<T, int64_t>::value) {
 			type = TypeId::BIGINT;
-		} else if (std::is_same<T, uint64_t>::value) {
+		} else if (std::is_same<T, uintptr_t>::value) {
 			type = TypeId::POINTER;
 		} else if (std::is_same<T, double>::value) {
 			type = TypeId::DOUBLE;

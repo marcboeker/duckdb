@@ -79,7 +79,7 @@ template <bool SET_NULL> void generic_copy_loop(Vector &source, void *target, in
 		copy_loop<double, SET_NULL>(source, target, offset, element_count);
 		break;
 	case TypeId::POINTER:
-		copy_loop<uint64_t, SET_NULL>(source, target, offset, element_count);
+		copy_loop<uintptr_t, SET_NULL>(source, target, offset, element_count);
 		break;
 	case TypeId::VARCHAR:
 		copy_loop<const char *, SET_NULL>(source, target, offset, element_count);

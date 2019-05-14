@@ -132,7 +132,7 @@ void JoinHashTable::Resize(count_t size) {
 			equality_serializer.Deserialize(entry_pointers, keys);
 
 			// create the hash
-			StaticVector<uint64_t> hashes;
+			StaticVector<uintptr_t> hashes;
 			keys.Hash(hashes);
 
 			// re-insert the entries
@@ -304,7 +304,7 @@ void JoinHashTable::Build(DataChunk &keys, DataChunk &payload) {
 
 	// hash the keys and obtain an entry in the list
 	// note that we only hash the keys used in the equality comparison
-	StaticVector<uint64_t> hashes;
+	StaticVector<uintptr_t> hashes;
 	Hash(keys, hashes);
 
 	if (parallel) {
@@ -332,7 +332,7 @@ unique_ptr<ScanStructure> JoinHashTable::Probe(DataChunk &keys) {
 	// scan structure
 	auto ss = make_unique<ScanStructure>(*this);
 	// first hash all the keys to do the lookup
-	StaticVector<uint64_t> hashes;
+	StaticVector<uintptr_t> hashes;
 	Hash(keys, hashes);
 
 	// use modulo to get index in array

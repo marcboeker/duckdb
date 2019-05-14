@@ -25,8 +25,8 @@ template <class T> int64_t MinimumValue() {
 		return std::numeric_limits<int32_t>::min() + 1;
 	} else if (std::is_same<T, int64_t>()) {
 		return std::numeric_limits<int64_t>::min() + 1;
-	} else if (std::is_same<T, uint64_t>()) {
-		return std::numeric_limits<uint64_t>::min();
+	} else if (std::is_same<T, uintptr_t>()) {
+		return std::numeric_limits<uintptr_t>::min();
 	} else {
 		assert(0);
 		return 0;
@@ -44,8 +44,8 @@ template <class T> int64_t MaximumValue() {
 		return std::numeric_limits<int32_t>::max();
 	} else if (std::is_same<T, int64_t>()) {
 		return std::numeric_limits<int64_t>::max();
-	} else if (std::is_same<T, uint64_t>()) {
-		return std::numeric_limits<int64_t>::max();
+	} else if (std::is_same<T, uintptr_t>()) {
+		return std::numeric_limits<uintptr_t>::max();
 	} else {
 		assert(0);
 		return 0;

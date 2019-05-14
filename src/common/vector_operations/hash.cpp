@@ -28,9 +28,6 @@ void VectorOperations::Hash(Vector &input, Vector &result) {
 	case TypeId::BIGINT:
 		templated_unary_loop_process_null<int64_t, uint64_t, duckdb::HashOp>(input, result);
 		break;
-	case TypeId::POINTER:
-		templated_unary_loop_process_null<uint64_t, uint64_t, duckdb::HashOp>(input, result);
-		break;
 	case TypeId::FLOAT:
 		templated_unary_loop_process_null<float, uint64_t, duckdb::HashOp>(input, result);
 		break;

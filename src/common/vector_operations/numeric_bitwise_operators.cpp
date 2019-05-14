@@ -28,7 +28,7 @@ template <class OP> static void templated_binary_bitwise_operation(Vector &left,
 		templated_binary_loop<int64_t, int64_t, int64_t, OP>(left, right, result);
 		break;
 	case TypeId::POINTER:
-		templated_binary_loop<uint64_t, uint64_t, uint64_t, OP>(left, right, result);
+		templated_binary_loop<uintptr_t, uintptr_t, uintptr_t, OP>(left, right, result);
 		break;
 	default:
 		throw InvalidTypeException(left.type, "Invalid type for bitwise operation");

@@ -40,7 +40,7 @@ void VectorOperations::AddInPlace(Vector &result, Vector &input) {
 		templated_inplace_loop<double, double, duckdb::AddInPlace>(input, result);
 		break;
 	case TypeId::POINTER:
-		templated_inplace_loop<uint64_t, uint64_t, duckdb::AddInPlace>(input, result);
+		templated_inplace_loop<uintptr_t, uintptr_t, duckdb::AddInPlace>(input, result);
 		break;
 	default:
 		throw InvalidTypeException(input.type, "Invalid type for addition");
@@ -100,7 +100,7 @@ void VectorOperations::ModuloInPlace(Vector &result, Vector &input) {
 		templated_inplace_divmod_loop<int64_t, int64_t, duckdb::ModuloInPlace>(input, result);
 		break;
 	case TypeId::POINTER:
-		templated_inplace_divmod_loop<uint64_t, uint64_t, duckdb::ModuloInPlace>(input, result);
+		templated_inplace_divmod_loop<uintptr_t, uintptr_t, duckdb::ModuloInPlace>(input, result);
 		break;
 	default:
 		throw InvalidTypeException(input.type, "Invalid type for in-place modulo");
