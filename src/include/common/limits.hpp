@@ -11,6 +11,7 @@
 #include "common/types.hpp"
 
 #include <limits>
+#include <cstdint>
 
 namespace duckdb {
 
@@ -45,7 +46,7 @@ template <class T> int64_t MaximumValue() {
 	} else if (std::is_same<T, int64_t>()) {
 		return std::numeric_limits<int64_t>::max();
 	} else if (std::is_same<T, uintptr_t>()) {
-		return std::numeric_limits<uintptr_t>::max();
+		return INTPTR_MAX; // otherwise return value overflows
 	} else {
 		assert(0);
 		return 0;

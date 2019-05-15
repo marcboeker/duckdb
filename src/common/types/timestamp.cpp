@@ -25,7 +25,7 @@ timestamp_t Timestamp::FromString(string str) {
 	// TODO throw exception if string too short
 
 	date_t date = Date::FromString(str.substr(0, 10));
-	dtime_t time = Time::FromString(str.substr(10));
+	dtime_t time = Time::FromString(str.substr(11));
 
 	return ((int64_t)date << 32 | (int32_t)time);
 }

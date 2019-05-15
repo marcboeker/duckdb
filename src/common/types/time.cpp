@@ -53,7 +53,7 @@ dtime_t Time::FromString(string str) {
 
 	if (ss.fail() || !IsValidTime(hour, minute, second) || sep != sep2 || sep != ':') {
 		throw ConversionException("time field value out of range: \"%s\", "
-		                          "expected format is (hh-mm-ss)",
+		                          "expected format is (hh:mm:ss)",
 		                          str.c_str());
 	}
 	return FromTime(hour, minute, second);
