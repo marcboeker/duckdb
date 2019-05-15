@@ -35,7 +35,7 @@ typedef uint64_t count_t;
 
 typedef uint64_t hash_t;
 
-const index_t INVALID_INDEX = (index_t)-1;
+extern index_t INVALID_INDEX;
 
 //! data pointers
 typedef uint8_t data_t;

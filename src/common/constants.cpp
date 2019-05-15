@@ -7,5 +7,6 @@ namespace duckdb {
 
 column_t COLUMN_IDENTIFIER_ROW_ID = (column_t)-1;
 sel_t ZERO_VECTOR[STANDARD_VECTOR_SIZE] = {0};
+index_t INVALID_INDEX = (index_t)-1;
 
 } // namespace duckdb
