@@ -20,6 +20,9 @@
 #include "transaction/transaction.hpp"
 #include "transaction/transaction_manager.hpp"
 
+#include <cstring>
+
+
 using namespace duckdb;
 using namespace std;
 
